@@ -1,0 +1,45 @@
+@import "./color.scss";
+
+.button {
+    border: none;
+    color: white;
+    padding: 0.5rem 1rem;
+    border-radius: 10px;
+
+    &--primary{
+        background-color: $main;
+
+        &:hover {
+            color: $main;
+            border: 1px solid;
+            background-color: white;
+        }
+    }
+
+    &--secondary {
+        background-color: $secondary;
+        
+        &:hover {
+            border: 1px solid;
+            color: $secondary;
+            background-color: white;
+        }
+    }
+
+    &--error {
+        background-color: $error;
+        
+        &:hover {
+            border: 1px solid;
+            color: $error;
+            background-color: white;
+        }
+    }
+
+    &:disabled {
+        cursor:not-allowed;
+        color: grey;
+        border-color: 1px solid;
+        background-color: white;
+    }
+}
