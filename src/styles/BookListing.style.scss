@@ -1,0 +1,9 @@
+.action-cell {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    
+    & button:first-child {
+        margin-right: 0.5rem;
+    }
+}

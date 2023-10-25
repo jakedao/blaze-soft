@@ -1,3 +1,42 @@
+@import "./styles/color.scss";
+
 #root {
     box-sizing: border-box;
+}
+
+.header {
+    width: 100vw;
+    display: flex;
+    align-items: center;
+    button {
+        margin-left: 50px;
+        height: 30px;
+    }
+}
+
+.table {
+    border: 1px solid $border;
+    border-collapse: collapse;
+
+ 
+    thead {
+        tr {
+            color: white;
+            background-color: $main;
+
+            td {
+                padding: 0.5rem
+            }
+        }
+    }
+
+    tbody {
+        tr {
+            td {
+                padding: 0.5rem;
+                text-align: center;
+
+            }
+        }
+    }
 }
