@@ -1,6 +1,6 @@
 import { createSlice } from '@reduxjs/toolkit';
 
-import { EBookCategory, IBook, TUpdateBookPayload } from '../type';
+import { IBook, TUpdateBookPayload } from '../type';
 
 import type { PayloadAction } from "@reduxjs/toolkit";
 export interface IBookState {
@@ -8,9 +8,7 @@ export interface IBookState {
 }
 
 const initialState: IBookState = {
-  books: [
-    { name: "Harry Potter", price: "12$", category: EBookCategory.Comics },
-  ],
+  books: [],
 };
 
 export const bookSlice = createSlice({
