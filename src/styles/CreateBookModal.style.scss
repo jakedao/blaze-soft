@@ -1,0 +1,33 @@
+@import "./color.scss";
+
+.book-modal {
+    display: flex;
+    flex-direction: column;
+    position: absolute;
+    width: 400px;
+    height: 400px;
+    border: 1px solid grey;
+    background-color: white;
+
+    &__header {
+        padding: 0 0.5rem;
+        background-color: $main-color;
+    }
+
+    &__body {
+        padding: 1rem;
+    }
+
+    &__footer {
+        display: flex;
+        padding: 1rem;
+        align-items: end;
+        justify-content: end;
+        border-top: 1px solid grey;
+
+        & button:first-child {
+            margin-right: 0.5rem;
+        }
+    }
+
+}
