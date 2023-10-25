@@ -1,23 +1,38 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 
 import { BookListing, CreateBookModal } from './components';
+import { Button, Toast } from './components/common';
+import { useBook, useCommon } from './hooks';
 
 const App = () => {
+  const { books } = useBook();
+  const { toast, onToggleToast } = useCommon();
   const [isShowModal, toggleBookCreateModal] = useState<boolean>(false);
 
-  return (
-    <div className="container">
-      <div className="header">
-        <h1>Blaze BookStore</h1>
-        <button onClick={() => toggleBookCreateModal(true)}>Add Book</button>
-        {isShowModal && (
-          <CreateBookModal
-            handleCloseBookModal={() => toggleBookCreateModal(false)}
-          />
-        )}
+  useEffect(() => {
+    if (toast.isVisible) {
+      setTimeout(() => {
+        onToggleToast({ ...toast, isVisible: false });
+      }, 2000);
+    }
+  }, [toast.isVisible]);
 
-        <BookListing books={[]} />
+  return (
+    <div id="root">
+      <div className="header">
+        <h3>Blaze BookStore</h3>
+        <Button onClick={() => toggleBookCreateModal(true)}>Add Book</Button>
       </div>
+
+      <BookListing books={books} />
+
+      {isShowModal && (
+        <CreateBookModal
+          handleCloseBookModal={() => toggleBookCreateModal(false)}
+        />
+      )}
+
+      {toast.isVisible && <Toast message={toast.message} type={toast.type} />}
     </div>
   );
 };

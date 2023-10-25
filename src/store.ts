@@ -1,9 +1,11 @@
-import { configureStore } from "@reduxjs/toolkit";
+import { configureStore } from '@reduxjs/toolkit';
 
-import bookReducer from "./slices/bookSlice";
+import bookReducer from './slices/bookSlice';
+import commonReducer from './slices/commonSlice';
 
 export const store = configureStore({
   reducer: {
+    common: commonReducer,
     books: bookReducer,
   },
 });

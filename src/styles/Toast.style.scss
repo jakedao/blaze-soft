@@ -1,0 +1,29 @@
+@import "./color.scss";
+
+.toast {
+    position: absolute;
+    right: 0;
+    top: 0;
+    margin: 1rem;
+    width: 300px;
+    height: 20px;
+    border-radius: 5px;
+    color: white;
+    padding: 1rem;
+    text-align: center;
+
+    opacity: 1;
+    animation: fade 2s linear;
+    
+    &--success{
+        background-color: $success;
+    }
+    &--error {
+        background-color: $error;
+    }
+
+    @keyframes fade {
+        0%,100% { opacity: 0 }
+        50% { opacity: 2 }
+      }
+}

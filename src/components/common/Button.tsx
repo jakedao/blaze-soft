@@ -6,18 +6,21 @@ type TOwnProps = DetailedHTMLProps<
   React.ButtonHTMLAttributes<HTMLButtonElement>,
   HTMLButtonElement
 > & {
-  variant?: "primary" | "secondary";
+  variant?: "primary" | "secondary" | "error";
   children: ReactNode;
 };
 
 const Button = (props: TOwnProps) => {
   const { variant = "primary", children, ...otherProps } = props;
 
-  const buttonVariantClass =
-    variant === "primary" ? "button--primary" : "button--secondary";
+  const buttonVariantClass = {
+    primary: "button--primary",
+    secondary: "button--secondary",
+    error: "button--error",
+  };
 
   return (
-    <button className={"button " + buttonVariantClass} {...otherProps}>
+    <button className={"button " + buttonVariantClass[variant]} {...otherProps}>
       {children}
     </button>
   );

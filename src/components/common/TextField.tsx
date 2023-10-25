@@ -1,17 +1,18 @@
-import React, { HTMLProps } from 'react';
+import React, { ChangeEvent } from 'react';
 
 type TOwnProps = {
   label: string;
-  inputProps?: HTMLProps<HTMLInputElement>;
+  value?: string | number;
+  onChange?: (e: ChangeEvent<HTMLInputElement>) => void;
 };
 
 const TextField = (props: TOwnProps) => {
-  const { label, inputProps } = props;
+  const { label, ...rest } = props;
 
   return (
     <div>
       <h5>{label}</h5>
-      <input {...inputProps} />
+      <input {...rest} />
     </div>
   );
 };
